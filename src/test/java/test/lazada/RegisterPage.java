@@ -1,5 +1,6 @@
 package test.lazada;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,5 +31,9 @@ public class RegisterPage {
 
 	public RegisterPage() {
 		PageFactory.initElements(driver, this);
+	}
+	
+	public WebElement sltValue (String valID) {
+		return driver.findElement(By.xpath("//li[@value='"+valID+"']"));
 	}
 }
