@@ -4,6 +4,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import test.lazada.LoginPage;
 
 /**
  * Unit test for simple App.
@@ -12,24 +17,20 @@ public class AppTest {
 	/**
 	 * Rigorous Test :-)
 	 */
+	WebDriver driver ;
 	@Test
-	public void shouldAnswerWithTrue()
+	public void firstTest()
 
 	{
-		int a = 1;
-		int b = 2;
-		int c = 3;
-
-		System.out.println("run test");
-		// assertEquals(8, a+b);
-		assertEquals(3, a + b);
-
-	}
-
-	@Test
-	public void minus() {
-		System.out.println("minus");
-		assertEquals(0, 2 + 2);
+		System.setProperty("webdriver.chrome.driver","D:\\Viettel\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("https://member.lazada.vn/user/login?spm=a2o4n.home.header.d5.1905e1820DK0Si&redirect=https%3A%2F%2Fwww.lazada.vn%2F");
+		LoginPage t = new LoginPage(driver);
+		t.txtUsername.sendKeys("usernametest");
+		t.txPassword.sendKeys("pastest");
+		t.btnSubmit.click();
 
 	}
+
+
 }
